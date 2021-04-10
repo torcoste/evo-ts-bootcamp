@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import styled from "styled-components"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ArrayVisualizer from "./components/ArrayVisualizer"
+import ControlButtons from "./components/ControlButtons"
+import SortingStatusView from "./components/SortingStatusView"
+import { SortingStatus } from "./constants"
+import { generateRandomArray } from "./helpers"
+
+const AppContainer = styled.main`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-self: center;
+  padding: 16px;
+`
+
+class App extends React.Component<{}, {}> {
+  state = {
+    array: generateRandomArray(),
+    sortingStatus: SortingStatus.NotSolved,
+  }
+
+  setNewSet = () => {
+    this.setState({
+      array: generateRandomArray(),
+      sortingStatus: SortingStatus.NotSolved,
+    })
+  }
+
+  startSorting = () => {
+    this.setState({
+      sortingStatus: SortingStatus.Solving,
+    })
+  }
+
+  pauseSorting = () => {
+    this.setState({
+      sortingStatus: SortingStatus.SolvingPaused,
+    })
+  }
+
+  render() {
+    const { array, sortingStatus } = this.state
+
+    return (
+      <AppContainer>
+        <h1>Bubble Sort Visualization</h1>
+        <ArrayVisualizer array={array} />
+        <ControlButtons
+          onNewSet={this.setNewSet}
+          onStartSort={this.startSorting}
+          onPauseSort={this.pauseSorting}
+          sortingStatus={sortingStatus}
+        />
+        <SortingStatusView sortingStatus={sortingStatus} />
+      </AppContainer>
+    )
+  }
 }
 
-export default App;
+export default App
