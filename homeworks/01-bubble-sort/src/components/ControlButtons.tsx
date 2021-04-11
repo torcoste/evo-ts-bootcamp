@@ -21,17 +21,29 @@ const ControlButtons: StatelessComponent<Props> = (
   const { onNewSet, onStartSort, onPauseSort, sortingStatus } = props
   const buttons = [
     { text: "New set", onClick: onNewSet },
-    sortingStatus === SortingStatus.Solving
-      ? { text: "Pause", onClick: onPauseSort }
-      : { text: "Start", onClick: onStartSort },
+    sortingStatus === SortingStatus.Solving && {
+      text: "Pause",
+      onClick: onPauseSort,
+    },
+    sortingStatus === SortingStatus.NotSolved && {
+      text: "Start",
+      onClick: onStartSort,
+    },
+    sortingStatus === SortingStatus.SolvingPaused && {
+      text: "Resume",
+      onClick: onStartSort,
+    },
   ]
   return (
     <div>
-      {buttons.map(({ text, onClick }) => (
-        <Button key={text} onClick={onClick}>
-          {text}
-        </Button>
-      ))}
+      {buttons.map(
+        (button) =>
+          !!button && (
+            <Button key={button.text} onClick={button.onClick}>
+              {button.text}
+            </Button>
+          )
+      )}
     </div>
   )
 }
