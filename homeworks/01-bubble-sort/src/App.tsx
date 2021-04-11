@@ -11,12 +11,14 @@ import { bubbleSort } from "./model/bubbleSort"
 import type { ArrayItem } from "./model/array"
 
 const AppContainer = styled.main`
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   align-self: center;
-  padding: 16px;
+  min-height: 100vh;
+  padding: 0 16px;
 `
 
 class App extends React.Component<{}, {}> {

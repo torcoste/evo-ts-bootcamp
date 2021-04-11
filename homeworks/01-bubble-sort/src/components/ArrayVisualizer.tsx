@@ -10,7 +10,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin: 64px 128px;
+  margin: 32px 0px;
+  width: max-content;
+  @media (min-width: 768px) {
+    min-width: 600px;
+  }
 `
 
 const ItemBar = styled.div<{ $height: number; $color: string }>`
@@ -19,6 +23,7 @@ const ItemBar = styled.div<{ $height: number; $color: string }>`
   border: 1px solid black;
   height: ${({ $height }) => `${$height}%`};
   margin: 1px;
+  min-width: 6px;
 `
 
 type Props = {
