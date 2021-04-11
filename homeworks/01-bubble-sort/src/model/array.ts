@@ -5,7 +5,9 @@ export type ArrayItem = {
   index: number
 }
 
-export const generateRandomArray = (length: number = ARRAY_ITEMS_QTY): ArrayItem[] =>
+export const generateRandomArray = (
+  length: number = ARRAY_ITEMS_QTY
+): ArrayItem[] =>
   new Array(length)
     .fill(0)
     .map((_, index) => ({ value: Math.random(), index: index }))
