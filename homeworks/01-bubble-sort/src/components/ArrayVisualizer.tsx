@@ -1,6 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { ArrayItem } from "../helpers"
+
+import { ARRAY_ITEMS_QTY } from "../constants"
+import { getRainbowColor } from "../model/color"
+import type { ArrayItem } from "../model/array"
 
 const Container = styled.div`
   height: 250px;
@@ -10,9 +13,9 @@ const Container = styled.div`
   margin: 64px 128px;
 `
 
-const ItemBar = styled.div<{ $height: number }>`
+const ItemBar = styled.div<{ $height: number; $color: string }>`
   flex: 1;
-  background-color: yellow;
+  background-color: ${({ $color }) => $color};
   border: 1px solid black;
   height: ${({ $height }) => `${$height}%`};
   margin: 1px;
@@ -28,7 +31,11 @@ class ArrayVisualizer extends React.Component<Props> {
     return (
       <Container>
         {array.map(({ value, index }) => (
-          <ItemBar key={index} $height={value * 100} />
+          <ItemBar
+            key={index}
+            $height={value * 100}
+            $color={getRainbowColor(index, ARRAY_ITEMS_QTY)}
+          />
         ))}
       </Container>
     )
