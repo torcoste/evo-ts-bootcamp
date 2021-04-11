@@ -1,5 +1,6 @@
 import React, { StatelessComponent } from "react"
 import styled from "styled-components"
+
 import { SortingStatus } from "../constants"
 
 const Button = styled.button`

@@ -21,7 +21,7 @@ const AppContainer = styled.main`
   padding: 0 16px;
 `
 
-class App extends React.Component<{}, {}> {
+class App extends React.Component {
   interval?: NodeJS.Timeout
   iterator?: Iterator<ArrayItem[]>
 
