@@ -26,7 +26,7 @@ const ItemBar = styled.div<{ $height: number; $color: string }>`
   min-width: 6px;
 `
 
-type Props = {
+interface Props {
   array: ArrayItem[]
 }
 

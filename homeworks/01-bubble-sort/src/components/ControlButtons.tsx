@@ -9,17 +9,19 @@ const Button = styled.button`
   }
 `
 
-type Props = {
+interface Props {
   onNewSet: () => void
   onStartSort: () => void
   onPauseSort: () => void
   sortingStatus: SortingStatus
 }
 
-const ControlButtons: StatelessComponent<Props> = (
-  props: Props
-): JSX.Element => {
-  const { onNewSet, onStartSort, onPauseSort, sortingStatus } = props
+const ControlButtons = ({
+  onNewSet,
+  onStartSort,
+  onPauseSort,
+  sortingStatus,
+}: Props): React.ReactElement => {
   const buttons = [
     { text: "New set", onClick: onNewSet },
     sortingStatus === SortingStatus.Solving && {
