@@ -43,23 +43,29 @@ class App extends React.Component {
     })
   }
 
+  initIterator = () => {
+    if (!this.iterator) this.iterator = bubbleSort(this.state.array)
+  }
+
+  makeSortingStep = () => {
+    const iteration = this.iterator?.next()
+    if (!iteration?.done) {
+      const array = iteration?.value
+      this.setState({ array })
+      return
+    }
+    this.clearInterval()
+    this.iterator = undefined
+    this.setState({ sortingStatus: SortingStatus.Solved })
+    return
+  }
+
   startSorting = () => {
     this.setState({
       sortingStatus: SortingStatus.Solving,
     })
-    if (!this.iterator) this.iterator = bubbleSort(this.state.array)
-    this.interval = setInterval(() => {
-      const iteration = this.iterator?.next()
-      if (!iteration?.done) {
-        const array = iteration?.value
-        this.setState({ array })
-        return
-      }
-      this.clearInterval()
-      this.iterator = undefined
-      this.setState({ sortingStatus: SortingStatus.Solved })
-      return
-    }, ITTERATIONS_INTERVAL)
+    this.initIterator()
+    this.interval = setInterval(this.makeSortingStep, ITTERATIONS_INTERVAL)
   }
 
   pauseSorting = () => {
@@ -67,6 +73,11 @@ class App extends React.Component {
     this.setState({
       sortingStatus: SortingStatus.SolvingPaused,
     })
+  }
+
+  manualStep = () => {
+    this.initIterator()
+    this.makeSortingStep()
   }
 
   render() {
@@ -80,6 +91,7 @@ class App extends React.Component {
           onNewSet={this.setNewSet}
           onStartSort={this.startSorting}
           onPauseSort={this.pauseSorting}
+          onManualStep={this.manualStep}
           sortingStatus={sortingStatus}
         />
         <SortingStatusView sortingStatus={sortingStatus} />

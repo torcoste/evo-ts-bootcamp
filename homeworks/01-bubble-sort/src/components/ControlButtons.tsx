@@ -13,6 +13,7 @@ interface Props {
   onNewSet: () => void
   onStartSort: () => void
   onPauseSort: () => void
+  onManualStep: () => void
   sortingStatus: SortingStatus
 }
 
@@ -20,6 +21,7 @@ const ControlButtons = ({
   onNewSet,
   onStartSort,
   onPauseSort,
+  onManualStep,
   sortingStatus,
 }: Props): React.ReactElement => {
   const buttons = [
@@ -35,6 +37,10 @@ const ControlButtons = ({
     sortingStatus === SortingStatus.SolvingPaused && {
       text: "Resume",
       onClick: onStartSort,
+    },
+    sortingStatus !== SortingStatus.Solving && {
+      text: "Manual Step",
+      onClick: onManualStep,
     },
   ]
   return (
