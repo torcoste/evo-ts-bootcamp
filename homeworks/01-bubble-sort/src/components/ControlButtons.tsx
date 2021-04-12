@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import { SortingStatus } from "../constants"
@@ -38,10 +38,11 @@ const ControlButtons = ({
       text: "Resume",
       onClick: onStartSort,
     },
-    sortingStatus !== SortingStatus.Solving && {
-      text: "Manual Step",
-      onClick: onManualStep,
-    },
+    sortingStatus !== SortingStatus.Solving &&
+      sortingStatus !== SortingStatus.Solved && {
+        text: "Manual Step",
+        onClick: onManualStep,
+      },
   ]
   return (
     <div>
