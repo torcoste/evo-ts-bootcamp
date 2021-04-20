@@ -30,7 +30,7 @@ interface Props {
   array: ArrayItem[]
 }
 
-class ArrayVisualizer extends React.Component<Props> {
+export class ArrayVisualizer extends React.Component<Props> {
   render() {
     const { array } = this.props
     return (
@@ -46,5 +46,3 @@ class ArrayVisualizer extends React.Component<Props> {
     )
   }
 }
-
-export default ArrayVisualizer

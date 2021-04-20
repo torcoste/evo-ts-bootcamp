@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import ArrayVisualizer from "./components/ArrayVisualizer"
-import ControlButtons from "./components/ControlButtons"
-import SortingStatusView from "./components/SortingStatusView"
+import { ArrayVisualizer } from "./components/ArrayVisualizer"
+import { ControlButtons } from "./components/ControlButtons"
+import { SortingStatusView } from "./components/SortingStatusView"
 import { ITTERATIONS_INTERVAL, SortingStatus } from "./constants"
 import { generateRandomArray } from "./model/array"
 import { bubbleSort } from "./model/bubbleSort"

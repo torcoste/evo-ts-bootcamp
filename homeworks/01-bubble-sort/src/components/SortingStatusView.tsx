@@ -6,8 +6,6 @@ interface Props {
   sortingStatus: SortingStatus
 }
 
-const SortingStatusView = ({ sortingStatus }: Props): React.ReactElement => (
+export const SortingStatusView = ({ sortingStatus }: Props): React.ReactElement => (
   <p>{sortingStatus}</p>
 )
-
-export default SortingStatusView

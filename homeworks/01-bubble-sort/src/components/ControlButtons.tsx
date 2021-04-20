@@ -17,7 +17,7 @@ interface Props {
   sortingStatus: SortingStatus
 }
 
-const ControlButtons = ({
+export const ControlButtons = ({
   onNewSet,
   onStartSort,
   onPauseSort,
@@ -57,5 +57,3 @@ const ControlButtons = ({
     </div>
   )
 }
-
-export default ControlButtons
