@@ -10,7 +10,7 @@ interface BinarySearchTreeInterface extends BinaryTreeInterface<number> {
 export class BinarySearchTree
   extends BinaryTree<number>
   implements BinarySearchTreeInterface {
-  compareFunction: CompareFunction<number> = defaultCompareFunction
+  private readonly compareFunction: CompareFunction<number> = defaultCompareFunction
 
   constructor(
     tree?: TreeNode<number>,
@@ -20,7 +20,7 @@ export class BinarySearchTree
     if (compareFinction) this.compareFunction = compareFinction
   }
 
-  has(value: number): boolean {
+  public has(value: number): boolean {
     if (!this.head) return false
     if (value === this.head.value) return true
     if (value < this.head.value)
