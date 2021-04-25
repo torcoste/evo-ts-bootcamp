@@ -8,7 +8,7 @@ enum TraverseType {
 }
 
 interface TreeNode<T> {
-  value: T
+  readonly value: T
   left: TreeNode<T>
   right: TreeNode<T>
 }
