@@ -21,35 +21,35 @@ export class BinarySearchTree
   }
 
   public has(value: number): boolean {
-    if (!this.head) return false
-    if (value === this.head.value) return true
-    if (value < this.head.value)
-      return new BinarySearchTree(this.head.left).has(value)
-    return new BinarySearchTree(this.head.right).has(value)
+    if (!this.root) return false
+    if (value === this.root.value) return true
+    if (value < this.root.value)
+      return new BinarySearchTree(this.root.left).has(value)
+    return new BinarySearchTree(this.root.right).has(value)
   }
 
   public addValue(value: number) {
-    if (!this.head) {
+    if (!this.root) {
       this.setTree(new TreeNode(value))
       return
     }
-    this.addTo(value, this.head)
+    this.addTo(value, this.root)
   }
 
-  private addTo(value: number, tree: TreeNode<number>) {
-    if (this.compareFunction(value, tree.value) < 0) {
-      if (!tree.left) {
-        tree.left = new TreeNode(value)
+  private addTo(value: number, node: TreeNode<number>) {
+    if (this.compareFunction(value, node.value) < 0) {
+      if (!node.left) {
+        node.left = new TreeNode(value)
         return
       }
-      this.addTo(value, tree.left)
+      this.addTo(value, node.left)
       return
     }
-    if (!tree.right) {
-      tree.right = new TreeNode(value)
+    if (!node.right) {
+      node.right = new TreeNode(value)
       return
     }
-    this.addTo(value, tree.right)
+    this.addTo(value, node.right)
   }
 
   public addValues(...values: number[]) {

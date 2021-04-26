@@ -19,38 +19,38 @@ export interface BinaryTreeInterface<T> {
 }
 
 export class BinaryTree<T> implements BinaryTreeInterface<T> {
-  protected head: TreeNode<T> | null = null
+  protected root: TreeNode<T> | null = null
 
   constructor(tree?: TreeNode<T>) {
     if (tree) this.setTree(tree)
   }
 
   public getTree() {
-    return this.head
+    return this.root
   }
 
   public setTree(tree: TreeNode<T>) {
-    this.head = tree
+    this.root = tree
     return this
   }
 
   public traverse(traverseType: TraverseType) {
-    if (!this.head) return []
+    if (!this.root) return []
 
     switch (traverseType) {
       case TraverseType.inorder:
-        return inorderTraverse(this.head)
+        return inorderTraverse(this.root)
       case TraverseType.preorder:
-        return preorderTraverse(this.head)
+        return preorderTraverse(this.root)
       case TraverseType.postorder:
-        return postorderTraverse(this.head)
+        return postorderTraverse(this.root)
       case TraverseType.breadth:
-        return breadthTraverse(this.head)
+        return breadthTraverse(this.root)
     }
   }
 
   public getColumn(columnOrder: number) {
-    let queue = [{ node: this.head, column: 0 }]
+    let queue = [{ node: this.root, column: 0 }]
     let values: T[] = []
 
     while (queue.length) {
