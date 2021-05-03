@@ -38,13 +38,13 @@ export class BinaryTree<T> implements BinaryTreeInterface<T> {
     if (!this.root) return []
 
     switch (traverseType) {
-      case TraverseType.inorder:
+      case TraverseType.Inorder:
         return inorderTraverse(this.root)
-      case TraverseType.preorder:
+      case TraverseType.Preorder:
         return preorderTraverse(this.root)
-      case TraverseType.postorder:
+      case TraverseType.Postorder:
         return postorderTraverse(this.root)
-      case TraverseType.breadth:
+      case TraverseType.Breadth:
         return breadthTraverse(this.root)
     }
   }

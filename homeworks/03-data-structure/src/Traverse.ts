@@ -2,11 +2,11 @@ import { TreeNode } from "./BinaryTree"
 
 export enum TraverseType {
   // Depth-First Search (DFS)
-  inorder = "inorder", // (Left, Root, Right)
-  preorder = "preorder", // (Root, Left, Right)
-  postorder = "postorder", // (Left, Right, Root)
+  Inorder = "inorder", // (Left, Root, Right)
+  Preorder = "preorder", // (Root, Left, Right)
+  Postorder = "postorder", // (Left, Right, Root)
   // Breadth-First Search (BFS)
-  breadth = "breadth",
+  Breadth = "breadth",
 }
 
 export const inorderTraverse = <T>(treeNode?: TreeNode<T>): T[] => {

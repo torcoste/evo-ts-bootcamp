@@ -31,25 +31,25 @@ describe("BinaryTree", () => {
 
   describe("traverse()", () => {
     it("return correct result for 'preorder' traverse type", () => {
-      const traverseType = TraverseType.preorder
+      const traverseType = TraverseType.Preorder
       const binaryTree = new BinaryTree(binaryTreeFake)
       const expectedResult = [4, 2, 1, 3, 5]
       expect(binaryTree.traverse(traverseType)).toStrictEqual(expectedResult)
     })
     it("return correct result for 'postorder' traverse type", () => {
-      const traverseType = TraverseType.postorder
+      const traverseType = TraverseType.Postorder
       const binaryTree = new BinaryTree(binaryTreeFake)
       const expectedResult = [1, 3, 2, 5, 4]
       expect(binaryTree.traverse(traverseType)).toStrictEqual(expectedResult)
     })
     it("return correct result for 'inorder' traverse type", () => {
-      const traverseType = TraverseType.inorder
+      const traverseType = TraverseType.Inorder
       const binaryTree = new BinaryTree(binaryTreeFake)
       const expectedResult = [1, 2, 3, 4, 5]
       expect(binaryTree.traverse(traverseType)).toStrictEqual(expectedResult)
     })
     it("return correct result for 'breadth' traverse type", () => {
-      const traverseType = TraverseType.breadth
+      const traverseType = TraverseType.Breadth
       const binaryTree = new BinaryTree(binaryTreeFake)
       const expectedResult = [4, 2, 5, 1, 3]
       expect(binaryTree.traverse(traverseType)).toStrictEqual(expectedResult)
@@ -58,16 +58,16 @@ describe("BinaryTree", () => {
     it("return [] for empty tree", () => {
       const binaryTree = new BinaryTree()
       const expectedResult = [] as const
-      expect(binaryTree.traverse(TraverseType.preorder)).toStrictEqual(
+      expect(binaryTree.traverse(TraverseType.Preorder)).toStrictEqual(
         expectedResult
       )
-      expect(binaryTree.traverse(TraverseType.postorder)).toStrictEqual(
+      expect(binaryTree.traverse(TraverseType.Postorder)).toStrictEqual(
         expectedResult
       )
-      expect(binaryTree.traverse(TraverseType.inorder)).toStrictEqual(
+      expect(binaryTree.traverse(TraverseType.Inorder)).toStrictEqual(
         expectedResult
       )
-      expect(binaryTree.traverse(TraverseType.breadth)).toStrictEqual(
+      expect(binaryTree.traverse(TraverseType.Breadth)).toStrictEqual(
         expectedResult
       )
     })
