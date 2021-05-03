@@ -27,28 +27,23 @@ describe("BinarySearchTree", () => {
   describe("has()", () => {
     it("returns false for emprty tree", () => {
       const binaryTree = new BinarySearchTree()
-      const expectedResult = false
-      expect(binaryTree.has(0)).toEqual(expectedResult)
+      expect(binaryTree.has(0)).toBe(false)
     })
     it("returns true for one-node tree with same value", () => {
       const binaryTree = new BinarySearchTree(new TreeNode(42))
-      const expectedResult = true
-      expect(binaryTree.has(42)).toEqual(expectedResult)
+      expect(binaryTree.has(42)).toBe(true)
     })
     it("returns true for tree with same value in first left", () => {
       const binaryTree = new BinarySearchTree(binaryTreeFake)
-      const expectedResult = true
-      expect(binaryTree.has(2)).toEqual(expectedResult)
+      expect(binaryTree.has(2)).toBe(true)
     })
     it("returns true for tree with same value in first right", () => {
       const binaryTree = new BinarySearchTree(binaryTreeFake)
-      const expectedResult = true
-      expect(binaryTree.has(5)).toEqual(expectedResult)
+      expect(binaryTree.has(5)).toBe(true)
     })
     it("returns false for out-of-tree value", () => {
       const binaryTree = new BinarySearchTree(binaryTreeFake)
-      const expectedResult = false
-      expect(binaryTree.has(42)).toEqual(expectedResult)
+      expect(binaryTree.has(42)).toBe(false)
     })
   })
 
