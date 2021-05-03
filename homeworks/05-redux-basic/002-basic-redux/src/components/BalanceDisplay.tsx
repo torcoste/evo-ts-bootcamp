@@ -7,7 +7,7 @@ interface PropsFromRedux {
 }
 interface BalanceDisplayProps extends PropsFromRedux {}
 
-const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps) => (
+const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps): React.ReactElement => (
   <p>
     Current balance: <b>{balance}</b>
   </p>
