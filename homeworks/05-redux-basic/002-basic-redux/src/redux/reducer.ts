@@ -1,3 +1,5 @@
+import { State } from "./types"
+
 enum ActionType {
   UpdateBalance = "UPDATE_BALANCE",
   Credit = "CREDIT",
@@ -10,7 +12,7 @@ interface Action<T> {
   payload: T
 }
 
-export function reducer(state = 1000.0, action: Action<number>) {
+export function reducer(state: State = 1000.0, action: Action<number>): State {
   switch (action.type) {
     case ActionType.UpdateBalance:
       return action.payload

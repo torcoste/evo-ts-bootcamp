@@ -1,16 +1,19 @@
 import React from "react"
 import { connect } from "react-redux"
+import { State } from "../redux/types"
 
-
-interface BalanceDisplayProps {
-    balance: number
+interface PropsFromRedux {
+  balance: State
 }
+interface BalanceDisplayProps extends PropsFromRedux {}
 
-const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps) => {
-  return <p>Current balance: <b>{balance}</b></p>
-}
+const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps) => (
+  <p>
+    Current balance: <b>{balance}</b>
+  </p>
+)
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: State): PropsFromRedux => ({
   balance: state,
 })
 
