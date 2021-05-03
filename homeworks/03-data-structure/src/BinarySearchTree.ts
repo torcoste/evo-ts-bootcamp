@@ -28,7 +28,7 @@ export class BinarySearchTree
     return new BinarySearchTree(this.root.right).has(value)
   }
 
-  public addValue(value: number) {
+  public addValue(value: number): void {
     if (!this.root) {
       this.setTree(new TreeNode(value))
       return
@@ -36,7 +36,7 @@ export class BinarySearchTree
     this.addTo(value, this.root)
   }
 
-  private addTo(value: number, node: TreeNode<number>) {
+  private addTo(value: number, node: TreeNode<number>): void {
     if (this.compareFunction(value, node.value) < 0) {
       if (!node.left) {
         node.left = new TreeNode(value)
@@ -52,7 +52,7 @@ export class BinarySearchTree
     this.addTo(value, node.right)
   }
 
-  public addValues(...values: number[]) {
+  public addValues(...values: number[]): void {
     values.forEach((value) => {
       this.addValue(value)
     })

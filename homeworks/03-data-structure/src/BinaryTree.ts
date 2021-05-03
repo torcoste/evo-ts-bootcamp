@@ -25,16 +25,16 @@ export class BinaryTree<T> implements BinaryTreeInterface<T> {
     if (tree) this.setTree(tree)
   }
 
-  public getTree() {
+  public getTree(): TreeNode<T> | null {
     return this.root
   }
 
-  public setTree(tree: TreeNode<T>) {
+  public setTree(tree: TreeNode<T>): this {
     this.root = tree
     return this
   }
 
-  public traverse(traverseType: TraverseType) {
+  public traverse(traverseType: TraverseType): T[] {
     if (!this.root) return []
 
     switch (traverseType) {
@@ -49,15 +49,17 @@ export class BinaryTree<T> implements BinaryTreeInterface<T> {
     }
   }
 
-  public getColumn(columnOrder: number) {
+  public getColumn(columnOrder: number): T[] {
     let queue = [{ node: this.root, column: 0 }]
     let values: T[] = []
 
     while (queue.length) {
       const { node, column } = queue.shift()!
       if (node && column === columnOrder) values = [...values, node.value]
-      if (node?.left) queue = [...queue, { node: node.left, column: column - 1 }]
-      if (node?.right) queue = [...queue, { node: node.right, column: column + 1 }]
+      if (node?.left)
+        queue = [...queue, { node: node.left, column: column - 1 }]
+      if (node?.right)
+        queue = [...queue, { node: node.right, column: column + 1 }]
     }
 
     return values
