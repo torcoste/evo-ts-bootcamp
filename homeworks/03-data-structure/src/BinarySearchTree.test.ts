@@ -23,7 +23,7 @@ const fakeCustomCompareFunction = (a: number, b: number) => {
   return 1
 }
 
-describe("BinaryTree", () => {
+describe("BinarySearchTree", () => {
   describe("has()", () => {
     it("returns false for emprty tree", () => {
       const binaryTree = new BinarySearchTree()
@@ -83,12 +83,15 @@ describe("BinaryTree", () => {
       expect(binaryTree.getTree()?.right?.right?.value).toEqual(6)
     })
     it("adds value in place depends on custom compare function", () => {
-      const binaryTree = new BinarySearchTree(undefined, fakeCustomCompareFunction)
+      const binaryTree = new BinarySearchTree(
+        undefined,
+        fakeCustomCompareFunction
+      )
 
       binaryTree.addValue(6)
       binaryTree.addValue(7)
       binaryTree.addValue(5)
-      
+
       expect(binaryTree.getTree()?.left?.value).toEqual(7)
       expect(binaryTree.getTree()?.right?.value).toEqual(5)
     })
