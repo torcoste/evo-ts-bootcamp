@@ -2,10 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { State } from "../redux/types"
 
-interface PropsFromRedux {
-  balance: State
-}
-interface BalanceDisplayProps extends PropsFromRedux {}
+interface BalanceDisplayProps extends ReturnType<typeof mapStateToProps> {}
 
 const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps): React.ReactElement => (
   <p>
@@ -13,7 +10,7 @@ const BalanceDisplayComponent = ({ balance }: BalanceDisplayProps): React.ReactE
   </p>
 )
 
-const mapStateToProps = (state: State): PropsFromRedux => ({
+const mapStateToProps = (state: State) => ({
   balance: state,
 })
 

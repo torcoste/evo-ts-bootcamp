@@ -7,14 +7,7 @@ import {
   updateBalance,
 } from "../redux/actions"
 
-interface PropsFromRedux {
-  updateBalance: (amount: number) => void
-  credit: (amount: number) => void
-  debit: (amount: number) => void
-  substractPercentage: (taxAmountPercentage: number) => void
-}
-
-interface BalanceControlProps extends PropsFromRedux {}
+interface BalanceControlProps extends ReturnType<typeof mapDispatchToProps> {}
 
 const BalanceControlComponent = ({
   updateBalance,
@@ -45,7 +38,7 @@ const BalanceControlComponent = ({
   )
 }
 
-const mapDispatchToProps = (dispatch: Function): PropsFromRedux => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   updateBalance: (amount: number) => {
     dispatch(updateBalance(amount))
   },
